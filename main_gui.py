@@ -338,7 +338,7 @@ with main:
             st.write(f"**Balance:** {balance}")
         return balance
 
-    if st.button("Calculate Balance"):
+    if st.button("Calculate Balance", type="primary"):
         if not (api_token and account_id and user_id):
             st.error("Please enter valid API credentials.")
         else:
