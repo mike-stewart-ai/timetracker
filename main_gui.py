@@ -178,9 +178,9 @@ with main:
 
     col_start, col_end = st.columns(2)
     with col_start:
-        start_date = st.date_input("Start Date", value=st.session_state.start_date, key="start_date", format="DD/MM/YYYY")
+        start_date = st.date_input("Start Date", key="start_date", format="DD/MM/YYYY")
     with col_end:
-        end_date = st.date_input("End Date", value=st.session_state.end_date, key="end_date", format="DD/MM/YYYY")
+        end_date = st.date_input("End Date", key="end_date", format="DD/MM/YYYY")
 
     # Standard working hours (in-session only)
     st.subheader("Standard Working Hours")
