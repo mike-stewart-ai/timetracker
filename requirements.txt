@@ -2,17 +2,3 @@ streamlit
 requests
 pandas
 altair 
-
-def get_working_days_in_range(start, end):
-    days = []
-    current = start
-    while current <= end:
-        days.append(current)
-        current += datetime.timedelta(days=1)
-    return days
-
-def calculate_expected_hours(working_days, standard_daily_hours):
-    total = 0
-    for day in working_days:
-        total += standard_daily_hours.get(day.strftime("%A"), 0)
-    return total 
