@@ -24,50 +24,49 @@ def calculate_expected_hours(working_days, standard_daily_hours):
         total += standard_daily_hours.get(day.strftime("%A"), 0)
     return total
 
-# Help Guide at the very top
-with st.expander("❓ Help Guide", expanded=False):
-    st.markdown("""
-    ### Welcome to Leap Time Tracker!
-
-    This guide will walk you through using the app from start to finish:
-
-    **1. What is Leap Time Tracker?**
-    - This web app helps you track your working hours, compare them to your expected hours, and see if you owe time or have extra hours. It integrates with your Harvest account and lets you add holidays (including bulk import from Xero).
-
-    **2. Logging In**
-    - Log in to your [Harvest account](https://id.getharvest.com/).
-    - Go to **Settings > Developers > API V2 Tokens**.
-    - Copy your **Personal Access Token** (API Token) and **Account ID**.
-    - Enter these into the app's fields. The app will fetch your user info and available time entry dates.
-
-    **3. Set Up Your Working Hours**
-    - Enter your standard daily hours for each weekday (defaults to 7.5 for Mon–Fri).
-    - Click **Save Standard Hours** if you make changes.
-
-    **4. Add Holidays**
-    - To add a single holiday or a range, use the **Add Holiday** section.
-    - To import multiple holidays from Xero, paste your Xero holiday export (e.g., `Holiday\tChristmas\t25 Dec - 31 Dec 2025\tApproved`) into the **Bulk Add Holidays from Xero** box and click the button.
-
-    **5. Select Your Date Range**
-    - The app will automatically set the start and end dates to match your earliest and latest Harvest time entries.
-    - You can adjust these dates if you want to focus on a specific period.
-
-    **6. View Your Results**
-    - Click **Calculate Balance** to see your hours owed or extra hours.
-    - Use the **Show Hours Graph** button to compare contractual vs. worked hours over time.
-    - Use the **Show Cumulative Balance Graph** to see how your hours owed/extra build up over time.
-
-    **7. Troubleshooting**
-    - If you see authentication errors, double-check your API token and account ID.
-    - Your data is not saved between sessions for privacy.
-    - If you have issues with date pickers, check your browser and system date settings.
-    - For further help, contact your admin.
-
-    Enjoy tracking your time!
-    """)
-
 left, main, right = st.columns([1, 4, 1])
 with main:
+    # Help Guide at the very top (now inside main)
+    with st.expander("❓ Help Guide", expanded=False):
+        st.markdown("""
+        ### Welcome to Leap Time Tracker!
+
+        This guide will walk you through using the app from start to finish:
+
+        **1. What is Leap Time Tracker?**
+        - This web app helps you track your working hours, compare them to your expected hours, and see if you owe time or have extra hours. It integrates with your Harvest account and lets you add holidays (including bulk import from Xero).
+
+        **2. Logging In**
+        - Log in to your [Harvest account](https://id.getharvest.com/).
+        - Go to **Settings > Developers > API V2 Tokens**.
+        - Copy your **Personal Access Token** (API Token) and **Account ID**.
+        - Enter these into the app's fields. The app will fetch your user info and available time entry dates.
+
+        **3. Set Up Your Working Hours**
+        - Enter your standard daily hours for each weekday (defaults to 7.5 for Mon–Fri).
+        - Click **Save Standard Hours** if you make changes.
+
+        **4. Add Holidays**
+        - To add a single holiday or a range, use the **Add Holiday** section.
+        - To import multiple holidays from Xero, paste your Xero holiday export (e.g., `Holiday\tChristmas\t25 Dec - 31 Dec 2025\tApproved`) into the **Bulk Add Holidays from Xero** box and click the button.
+
+        **5. Select Your Date Range**
+        - The app will automatically set the start and end dates to match your earliest and latest Harvest time entries.
+        - You can adjust these dates if you want to focus on a specific period.
+
+        **6. View Your Results**
+        - Click **Calculate Balance** to see your hours owed or extra hours.
+        - Use the **Show Hours Graph** button to compare contractual vs. worked hours over time.
+        - Use the **Show Cumulative Balance Graph** to see how your hours owed/extra build up over time.
+
+        **7. Troubleshooting**
+        - If you see authentication errors, double-check your API token and account ID.
+        - Your data is not saved between sessions for privacy.
+        - If you have issues with date pickers, check your browser and system date settings.
+        - For further help, contact your admin.
+
+        Enjoy tracking your time!
+        """)
     st.title("Leap Time Tracker")
 
     # API credentials (not saved)
